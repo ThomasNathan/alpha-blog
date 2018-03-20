@@ -17,12 +17,7 @@ class ArticlesController < ApplicationController
 	
 	def create
 		@article = Article.new(article_params)
-		#expermient to see if I can get it to save the article to the signed-in user
-		#it worked!!!!!!!!!!!!
-		#I solved it!!!!!!!!!!
-		#victory!!!!!!!!!!!!-
 		@article.user = current_user
-		#@article.user = User.first
 		if @article.save
 			flash[:success] = "Article was successfully created"
 			redirect_to article_path(@article)
